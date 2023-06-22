@@ -20,16 +20,18 @@ This guide will walk you through the steps to add a new notification to your pro
 
 Select the specific project and environment on [ROQ Console](https://console.roq.tech/) for which you want to create a new notification. Make sure you choose the appropriate project and environment before proceeding.
 
+For example select Projects **language-transla-9ea4** with the development environment is **Development 01**.
+
 ![select-project-and-env](/images/select-project-and-env.png)
 
-### Accessing Notification Settings Page
+### Accessing the Notification Settings Page
 
-To access the notification settings page in the ROQ console, click a bell icon (Notifications)
+To access the notification settings page in the ROQ console, click the Notifications menu (bell icon)
 
 ![roq-console-notification-setting](/images/project-notification-setting.png)
 
 ### Creating a New Notification Template
 
-There are two side menu **Templates** and **Logs**.
-
 To create a new notification template, click the **Templates** menu and look for the **Create Template** button on the page and click it. This will initiate the process to create a new notification template, allowing you to customize the notification as per your project's needs.
+
+![create-notification-template](/images/create-notifications-template.png)
