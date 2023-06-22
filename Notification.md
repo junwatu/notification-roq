@@ -22,12 +22,14 @@ Select the specific project and environment on [ROQ Console](https://console.roq
 
 ![select-project-and-env](/images/select-project-and-env.png)
 
-### Accessing Notification Settings
+### Accessing Notification Settings Page
 
-To access the notification settings, navigate to the ROQ console. Here, you'll find a bell icon which you can click to reach the notifications page.
+To access the notification settings page in the ROQ console, click a bell icon (Notifications)
 
 ![roq-console-notification-setting](/images/project-notification-setting.png)
 
 ### Creating a New Notification Template
 
-To create a new notification template, look for the 'Create Template' button on the page and click it. This will initiate the process to create a new notification template, allowing you to customize the notification as per your project's needs.
+There are two side menu **Templates** and **Logs**.
+
+To create a new notification template, click the **Templates** menu and look for the **Create Template** button on the page and click it. This will initiate the process to create a new notification template, allowing you to customize the notification as per your project's needs.
