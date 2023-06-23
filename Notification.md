@@ -59,10 +59,15 @@ After **Create Localized Content** for any channels that you need, the notificat
 
 ### Test Notifications
 
-To test notifications we created earlier we can use GraphQL queries
+To test notifications we created earlier we need to query data from GraphQL server. The URL for  this GraphQL server is in **Project Details** in ROQ console.
+
+This page shows all the credentials to access the GraphQL server.
+
+![](/images/project-details-graphql-api-url.png)
+
+To test the notifications, we can use GraphQL query like this:
 
 ```graphql
-
 mutation {
   notify(
     notification: {
@@ -81,3 +86,12 @@ mutation {
 }
  
 ```
+
+If you execute the GraphQL query above you will get 1 user notified.
+
+![graphql-query-sandbox](/images/graphql-queries.png)
+
+and the triggered notifications will shows on your SaaS project.
+
+![triggered-notification](/images/triggered-notification.png)
+
