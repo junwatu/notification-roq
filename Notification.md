@@ -47,11 +47,17 @@ Each of these channels allows you to configure message templates.
 
 ![configure-messages](/images/configure-messages-on-channel.png)
 
-Please note that for the **Email** and **SMS** channels to work, you need to set up ROQ with third-party services first in the [Integration]().
+Please note that for the **Email** and **SMS** channels to work, you need to set up ROQ with third-party services first in the [Integration]() ROQ Console.
 
-To create localized content for the channel messages, click **Create Localized Content** button. Fill the fields to your needs and save it.
+To create a localized content for the channel messages, click **Create Localized Content** button. Fill the fields to your needs and save it.
 
 ![create-localized-content](/images/cretae-localized-content.png)
+
+The localized content supports custom variables, enabling you to notify users with custom values in the message.
+
+![localized-content-with-vars](/images/localized-content-with-vars.png)
+
+You can set the `downloadLink` variable with Notification API or by query via GraphQL API.
 
 After **Create Localized Content** for any channels that you need, the notification will show up on **Notifications Preferences** in your SaaS project.
 
@@ -94,13 +100,13 @@ and the triggered notifications will shows to any recipients.
 
 ![triggered-notification](/images/triggered-notification.png)
 
-### Notify users using Notifications API
+## Notifications API
 
 ROQ's notifications enable you to notify your users or user groups on various channels.
 
 To notify your users you can use the `notify()` API. It's important to use the same key which you set to the notification template.
 
-**Mutations**
+### Mutations
 
 `notify()`
 
@@ -163,8 +169,7 @@ await client.asSuperAdmin().notify({
 | recipients:allUsers     | bool    | If set to true then all users will be notified. |
 | data                    | array   | List of key/value pairs which you can use in the content section of the Notification template |
 
-
-**Queries**
+### Queries
 
 `notifications()`
 
