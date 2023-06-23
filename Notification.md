@@ -18,7 +18,7 @@ This guide will walk you through the steps needed to add a new notification to y
 
 ### Selecting the Project
 
-Begin by selecting the specific project and environment on the [ROQ Console](https://console.roq.tech/) for which you want to create a new notification. Make sure to choose the appropriate project and environment before proceeding. For instance, you might select the project **language-transla-9ea4** with the environment **Development 01**.
+Begin by selecting the specific project and environment on the [ROQ Console](https://console.roq.tech/) for which you want to create a new notification. Make sure to choose the appropriate **project** and **environment** before proceeding.
 
 ![select-project-and-env](/images/select-project-and-env.png)
 
@@ -39,7 +39,7 @@ When creating a new notification template, you need to fill in two fields:
 1. **Key**: Each template requires a unique key, which will be used as a reference to trigger notifications using the API or programmatically.
 2. **Notification Description**: This is where you provide a description of the notification.
 
-After creating a notification template, you will need to configure and activate the channels. Currently, we support three channels.
+After creating a notification template, you will need to configure and activate the channels. Currently, we support three channels: Web (In-App), Email, and SMS.
 
 ![configure-template](/images/configure-template.png)
 
@@ -47,5 +47,9 @@ Each of these channels allows you to configure message templates.
 
 ![configure-messages](/images/configure-messages-on-channel.png)
 
-For the **Email** and **SMS** channels to work, you need to set up ROQ with third-party services in the [Integration]().
+Please note that for the **Email** and **SMS** channels to work, you need to set up ROQ with third-party services first in the [Integration]().
+
+After **Create Localized Content** for any channels that you need, the notification will show up on **Notifications Preferences** in your SaaS project.
+
+![saas-notificatons-preferences](/images/notification-settings.png)
 
