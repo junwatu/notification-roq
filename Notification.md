@@ -137,7 +137,7 @@ mutation {
 }
 ```
 
-**Node.js**
+**Node.js SDK**
 
 ```js
 await client.asSuperAdmin().notify({
@@ -166,3 +166,29 @@ await client.asSuperAdmin().notify({
 
 **Queries**
 
+`notifications()`
+
+We can fetches notifications by using the `notifications()` query. You can find the full API doc of this query [here](opens in a new tab).
+
+**GraphQL**
+
+```graphql
+query {
+  notifications(page: 0, seen: false) {
+    data {
+      id
+      title
+      content
+      icon
+      seen
+      read
+    }
+  }
+}
+```
+
+**Node.js SDK**
+
+```js
+await client.asSuperAdmin().notifications();
+```
