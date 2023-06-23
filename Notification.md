@@ -49,7 +49,35 @@ Each of these channels allows you to configure message templates.
 
 Please note that for the **Email** and **SMS** channels to work, you need to set up ROQ with third-party services first in the [Integration]().
 
+To create localized content for the channel messages, click **Create Localized Content** button. Fill the fields to your needs and save it.
+
+![create-localized-content](/images/cretae-localized-content.png)
+
 After **Create Localized Content** for any channels that you need, the notification will show up on **Notifications Preferences** in your SaaS project.
 
 ![saas-notificatons-preferences](/images/notification-settings.png)
 
+### Test Notifications
+
+To test notifications we created earlier we can use GraphQL queries
+
+```graphql
+
+mutation {
+  notify(
+    notification: {
+      key: "translate-status"
+      recipients: {
+        userIds: ["163ae909-b611-423c-b105-67f86a8870ac"]
+        userGroups: { operator: AND, userGroupIds: ["325a3bc5-3d65-4868-b4af-85d4f8f206b8"] }
+        allUsers: false
+      }
+    }
+  ) {
+    usersNotified {
+      count
+    }
+  }
+}
+ 
+```
