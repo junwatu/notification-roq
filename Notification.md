@@ -84,14 +84,85 @@ mutation {
     }
   }
 }
- 
 ```
 
 If you execute the GraphQL query above you will get 1 user notified.
 
 ![graphql-query-sandbox](/images/graphql-queries.png)
 
-and the triggered notifications will shows on your SaaS project.
+and the triggered notifications will shows to any recipients.
 
 ![triggered-notification](/images/triggered-notification.png)
+
+### Notify users using Notifications API
+
+ROQ's notifications enable you to notify your users or user groups on various channels.
+
+To notify your users you can use the `notify()` API. It's important to use the same key which you set to the notification template.
+
+**Mutations**
+
+`notify()`
+
+The `notify()` mutation enables you to notify:
+
+- A single user or multiple users
+- Users of one or multiple user groups
+- All of your users.
+
+You can find the full API doc of this mutation [here](https://mars-pp.roq-platform.com/docs/#mutation-notify)
+
+The API requiers a `key` parameter which you need to configure in ROQ Console, see instructions [here](). The notified users are defined in the recipients variable as shown below.
+
+**GraphQL**
+
+```graphql
+mutation {
+  notify(
+    notification: {
+      key: "aaa"
+      recipients: {
+        userIds: ["abc123"]
+        userGroups: { operator: AND, userGroupIds: ["xyz789"] }
+        excludedUserIds: ["abc123"]
+        allUsers: false
+      }
+      data: [{ key: "xyz789", value: "xyz789" }]
+    }
+  ) {
+    usersNotified {
+      count
+    }
+  }
+}
+```
+
+**Node.js**
+
+```js
+await client.asSuperAdmin().notify({
+  notification: {
+    key: 'aaa',
+    recipients: {
+      userIds: ['abc123'],
+      userGroups: { operator: 'AND', userGroupIds: ['xyz789'] },
+      excludedUserIds: ['abc123'],
+      allUsers: false,
+    },
+    data: [{ key: 'xyz789', value: 'xyz789' }],
+  },
+});
+```
+
+| Parameter               | Type    | Description |
+|-------------------------|---------|-------------|
+| key                     | string  | Key of notification-type that you created in the Console, eg."WELCOME_NOTIFICATION" |
+| recipients:userIds      | array   | Array of user IDs that are notified. |
+| recipients:userGroups   | object  | An object that represents a list of user groups and an operator which can be set to "AND"(intersection of users) and "OR" (union of users). |
+| recipients:excludedUserIds | array   | List of user IDs (of ROQ Platform) who shouldn't be notified. A typical use case is when a user performs an action and all users of the same user-group should be notified, except of the acting user |
+| recipients:allUsers     | bool    | If set to true then all users will be notified. |
+| data                    | array   | List of key/value pairs which you can use in the content section of the Notification template |
+
+
+**Queries**
 
