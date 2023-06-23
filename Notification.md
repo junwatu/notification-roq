@@ -22,7 +22,6 @@ Begin by selecting the specific project and environment on the [ROQ Console](htt
 
 ![select-project-and-env](/images/select-project-and-env.png)
 
-> You need 
 
 ### Accessing the Notifications Settings Page
 
@@ -200,3 +199,5 @@ query {
 ```js
 await client.asSuperAdmin().notifications();
 ```
+
+## 
