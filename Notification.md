@@ -5,10 +5,10 @@
 ROQ's notification system allows you to reach your users or user groups through various channels:
 
 - In-app notifications: These are loaded in real time, using a socket connection directly from your web app.
-- SMS or push messages: Send notifications directly to your users' mobile phones.
 - Traditional e-mails: Deliver messages straight to the users' inbox.
+- SMS or push messages: Send notifications directly to your users' mobile phones.
 
-Users have the ability to customize their preferences for each type of notification. For example, they can choose to receive alerts through push messages while getting product updates via e-mail.
+Users have the ability to customize their preferences for each type of notification. For example, they can choose to receive alerts through push messages while getting product updates via e-mail or SMS.
 
 ## How to Add a New Notification
 
@@ -71,18 +71,19 @@ This page shows all the credentials to access the GraphQL server.
 
 ![](/images/project-details-graphql-api-url.png)
 
-To test the notifications, we can use GraphQL query like this:
+To test or trigger the notifications, we can use GraphQL query like this:
 
 ```graphql
 mutation {
   notify(
     notification: {
-      key: "translate-status"
+      key: "translated-file-conversion"
       recipients: {
         userIds: ["163ae909-b611-423c-b105-67f86a8870ac"]
         userGroups: { operator: AND, userGroupIds: ["325a3bc5-3d65-4868-b4af-85d4f8f206b8"] }
         allUsers: false
-      }
+      },
+      data: [{ key: 'downloadLink', value: 'https://roq.ai' }]
     }
   ) {
     usersNotified {
@@ -92,7 +93,7 @@ mutation {
 }
 ```
 
-If you execute the GraphQL query above you will get 1 user notified.
+If you execute the GraphQL query above in the GraphQL API server sandbox, you will get 1 user notified.
 
 ![graphql-query-sandbox](/images/graphql-queries.png)
 
