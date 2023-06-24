@@ -120,7 +120,9 @@ The `notify()` mutation enables you to notify:
 
 You can find the full API doc of this mutation [here](https://mars-pp.roq-platform.com/docs/#mutation-notify)
 
-The API requires a `key` parameter that you need to configure in ROQ Console, see instructions [here](). The notified users are defined in the recipients variable as shown below.
+The API requires a `key` parameter that you need to configure in ROQ Console, see instructions [here](). There are two ways to notify users: with GraphQL query and Node.js SDK
+
+The notified users are defined in the `recipients` property or variable as shown below:
 
 **GraphQL**
 
@@ -175,7 +177,7 @@ await client.asSuperAdmin().notify({
 
 `notifications()`
 
-We can fetch notifications by using the `notifications()` query. You can find the full API doc of this query [here](opens in a new tab).
+We can fetch notifications by using the `notifications()` query. You can find the full API doc of this query [here](http://).
 
 **GraphQL**
 
@@ -200,4 +202,3 @@ query {
 await client.asSuperAdmin().notifications();
 ```
 
-## 
